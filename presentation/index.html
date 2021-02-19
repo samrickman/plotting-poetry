@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Plotting poetry</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/night.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+	</head>
+	<body>
+
+		<div class='reveal'>
+			<div class='footer'>
+			  Use left and right arrows to navigate
+			</div>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section><h3>Plotting poetry</h2> 
+					Beyond a grammar of graphics
+				</section>
+				
+				<section id="fragments">
+					<h2>Why is this important?</h2>
+					<ol>
+						<ul class="fragment"><li>Communicating in academic papers.</li></ul>
+						<ul class="fragment"><li>Communicating to a non-academic audience.</li></ul>
+						<ul class="fragment"><li>Not exploratory data analysis.</li>
+					</ol>
+				</section>
+				
+				<section id="fragments">
+					<h2>Communicating</h2>
+					<ol>
+						<ul class="fragment"><li>Can we learn lessons from the boroughs which have had fewer Covid deaths for older people?</li></ul>
+						<ul class="fragment"><li>It's not that simple.</li></ul>
+						<ul class="fragment"><li>How to communicate this?</li></ul>
+					</ol>
+				</section>
+
+				<section data-background-iframe="../covid_deaths/imd_tertile_snapshot.html"
+				data-background-interactive data-background=#ffffff>
+				
+				</section>
+				
+				<section id="fragments">
+					<h2>Outline</h2>
+					<ol>
+						<li class="fragment">A grammar of graphics.</li>
+						<li class="fragment">What is poetry?</li>
+						<li class="fragment">What is graphical poetry?</li>
+					</ol>
+				</section>
+
+				<section style="text-align: left", id = "fragments">  
+					<blockquote cite="https://vita.had.co.nz/papers/layered-grammar.pdf">
+					<p class="fragment">A grammar of graphics is a tool that enables us to concisely describe the components of a graphic. </p><p class="fragment">
+						Such a grammar allows us to move beyond named graphics (e.g., the “scatterplot”) and gain insight into the deep structure that underlies statistical graphics.</p>
+				  </blockquote>
+				<p style="font-size:70%;text-align:right;">Wickham, H., 2010. A layered grammar of graphics.<br> <em>Journal of Computational and Graphical Statistics</em>, 19(1), pp.3-28.</p>
+				</section>
+
+				<section id="fragments">
+					<h2>What is a grammar of graphics?</h2>
+					<ol>
+						<li class="fragment fade-up">Data</li>
+						<li class="fragment fade-up">Mapping</li>
+						<li class="fragment fade-up">Geometric transformations</li>
+						<li class="fragment fade-up">Statistical transformations</li>
+						<li class="fragment fade-up">Scale</li>
+						<li class="fragment fade-up">Coordinates</li>
+						<li class="fragment fade-up">Facets</li>
+					</ol>
+
+				</section>
+
+
+			<section data-background-iframe="https://docs.google.com/spreadsheets/d/1DvflfkgLjoDfpAYiQdUwLlKTRk4HNmaZbYGu3t_TvrU/edit?usp=sharing"
+			data-background-interactive data-background=#ffffff>
+			
+			</section>
+
+			<!--
+			<section data-background-iframe="../covid_deaths/all_lines.html"
+			data-background-interactive data-background=#ffffff>
+			<ol>
+
+				<li class="fragment" style="position: absolute; left: 100px; top: 100px; font-size: 20px">Mapping <br>X: Date<br>Y: Mortality</li>
+				<li class="fragment" style="position: absolute; left: 100px; top: 200px; font-size: 20px">Geom: line</li>
+				<li class="fragment" style="position: absolute; left: 100px; top: 230px; font-size: 20px">Scale: discrete colours</li>
+				</ol>
+
+			
+			</section>
+
+			-->
+
+			
+			<section>
+				<img src="../covid_deaths/plots/deaths_by_deprivation.png" width="90%" style="float: right;">
+				<li class="fragment" style="position: absolute; left: 0px; top: 200px; font-size: 20px">Mapping</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 230px; font-size: 20px">Geometry</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 260px; font-size: 20px">Scatter</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 290px; font-size: 20px">Smooth</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 320px; font-size: 20px">Facets</li>
+			</section>
+
+			<section data-background-iframe="../covid_deaths/cleaned_data/deaths_map.html"
+			data-background-interactive data-background=#ffffff>
+			<li class="fragment" style="position: absolute; left: 0px; top: 460px; font-size: 20px">Mapping</li>
+			<li class="fragment" style="position: absolute; left: 0px; top: 490px; font-size: 20px">X: Longitude</li>
+			<li class="fragment" style="position: absolute; left: 0px; top: 520px; font-size: 20px">Y: Latitude</li>
+			<li class="fragment" style="position: absolute; left: 0px; top: 550px; font-size: 20px">Geoms: Polygons</li>
+			<li class="fragment" style="position: absolute; left: 0px; top: 580px; font-size: 20px">Scale: Colour</li>
+			</section>
+			
+			<section data-background=#ffffff>
+				<img src="../covid_deaths/plots/deaths_by_month_biased_facets.png" width="70%">
+				<li class="fragment" style="position: absolute; left: 0px; top: 460px; font-size: 20px">Mapping</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 490px; font-size: 20px">X: Mortality (density)</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 520px; font-size: 20px">Y: Month</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 550px; font-size: 20px">Geoms: Density</li>
+				<li class="fragment" style="position: absolute; left: 0px; top: 580px; font-size: 20px">Scale: Continuous</li>
+			</section>
+
+
+
+			<section>
+				<img src="../covid_deaths/plots/deaths_by_month_unbiased_facets.png" width="70%">
+			</section>
+		
+			
+			<section style="text-align: left", id = "fragments">  
+				<blockquote cite="https://vita.had.co.nz/papers/layered-grammar.pdf">
+				Grammar tells us what words make up our graphical “sentences”, but offers no advice on how to write well. <p class="fragment">How can we build on top of the grammar to help data analysts build compelling, revealing graphics?</p>  <p class="fragment">What would a poetry of graphics look like?</p>
+			</blockquote>
+			<p style="font-size:70%;text-align:right;">Wickham, H., 2010. A layered grammar of graphics. <em>Journal of Computational and Graphical Statistics</em>, 19(1), pp.3-28.</p>
+			</section>
+						
+						
+
+
+				<!--
+				<section data-background-iframe="https://samrickman.shinyapps.io/visualising_discharges/"
+				data-background-interactive>
+				
+				</section>
+				-->
+				<section>
+					<h1>What is poetry?</h2>
+				</section>
+
+	
+
+
+				<section data-background="https://25.media.tumblr.com/71accf065fa5c9766087eda75caecd6e/tumblr_mhgdghlCtj1rr8wbto1_500.gif">
+				
+				</section>
+
+				<section style="text-align: left", id = "fragments">  
+					
+
+				<blockquote>
+					A good poem helps to change the shape and significance of the universe; helps to extend everyone’s knowledge of himself and the world around him.</p>
+				  </blockquote>
+				<p style="font-size:70%;text-align:right;"><span>Dylan Thomas</span></p>
+				</section>
+				
+				<section style="text-align: left", id = "fragments">  
+					<h2>On beauty</h2>
+					<blockquote>
+						Beauty is truth, truth beauty,—that is all<br>
+                Ye know on earth, and all ye need to know.</p>
+				  </blockquote>
+				<p style="font-size:70%;text-align:right;"><span>Keats, John. <em>Ode on a Grecian urn</em> (1819).</span></p>
+				<li class="fragment" style="position: absolute; left: 400px; top: 360px; list-style-type:none;"><img src="img/beauty_truth.jpg" width="85%"></li>
+				</section>
+				
+
+				<section>
+					<h2>What is poetry?</h2>
+					<style type="text/css">
+						.tg  {border-collapse:collapse;border-spacing:0;}
+						.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:36px;
+						  overflow:hidden;padding:10px 5px;word-break:normal;}
+						.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:36px;
+						  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+						.tg .tg-a6rl{background-color:rgba(255,255,255,0);border-color:rgba(255,255,255,255);font-weight:bold;text-align:center;vertical-align:center}
+						.tg .tg-syad{background-color:rgba(255,255,255,0);border-color:rgba(255,255,255,255);color:#ffffff;text-align:left;vertical-align:top}
+						.tg .tg-hfk9{background-color:rgba(255,255,255,0);border-color:rgba(255,255,255,255);text-align:left;vertical-align:top}
+						.tg .tg-mcu2{background-color:rgba(255,255,255,0);border-color:rgba(255,255,255,255);font-weight:bold;text-align:center;vertical-align:top}
+						</style>
+						<table class="tg">
+						<thead>
+						  <tr>
+							<th class="tg-hfk9"></th>
+							<th class="tg-mcu2" colspan="3">Beauty</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td class="tg-a6rl" rowspan="3"><br><br><br>Truth</td>
+							<td class="tg-syad"></td>
+							<td class="tg-syad">0</td>
+							<td class="tg-syad">1</td>
+						  </tr>
+						  <tr>
+							<td class="tg-syad">0</td>
+							<td class="tg-syad"><span class="fragment" data-fragment-index="4"><img src="https://static.thenounproject.com/png/680918-200.png"></img></span></td>
+							<td class="tg-syad"><span class="fragment" data-fragment-index="1">Rhetoric</span></td>
+						  </tr>
+						  <tr>
+							<td class="tg-syad">1</td>
+							<td class="tg-syad"><span class="fragment" data-fragment-index="2">Prose</span></td>
+							<td class="tg-syad"><span class="fragment" data-fragment-index="3">Poetry</span></td>
+						  </tr>
+						</tbody>
+						</table>
+				</section>
+
+					<section id="fragments">
+						<h2>Application to plotting</h2>
+						<ol>
+							<ul class="fragment"><li>What makes a plot true?</li></ul>
+							<ul class="fragment"><li>What makes a plot beautiful?</li></ul>
+						</ol>
+					</section>
+
+					<section id="fragments">
+						<h2>Truth: objective or subjective?</h2>
+						<ol>
+							<li class="fragment">Inaccurate plots</li>
+							<li class="fragment">Suppressio veri</li>
+							<li class="fragment">Suggestio falsi</li>
+						</ol>
+					</section>
+
+					<section>
+						<h2>A true plot</h2>
+						<img src="../covid_deaths/plots/suggestio_falsi.png" width="50%" style="float: left">
+						<ul style="width: 40%;">
+							<ul class="fragment"><li>Suppressio veri: overplotting</li></ul>
+							<ul class="fragment"><li>Suggestio falsi: dependent and independent variables</li></ul>
+						</ul>
+					</section>
+
+					<section style="text-align: left", id = "fragments">  
+						<blockquote>
+							In composing the Odyssey he did not include all the adventures of Odysseus—such as his wound on Parnassus, or his feigned madness at the mustering of the host—incidents between which there was no necessary or probable connection: but he made the Odyssey, and likewise the Iliad, to centre round an action that in our sense of the word is one.
+						  </blockquote>
+						<p style="font-size:70%;text-align:right;"><span>Aristotle. <em>Aristotle's Poetics.</em> New York: Hill and Wang, 1961.</span></p>
+					</section>
+	
+					<section id="fragments">
+						<h2>Beauty</h2>
+					</section>
+
+					<section data-background="#ffffff">
+						<img src="img/Playfair_TimeSeries-2.png" width="75%" style="float: left">
+
+					</section>
+
+					<section>
+						<img src="img/visual_processing.PNG" width="50%">
+						<ul>Spence, 2006.</ul>
+					</section>
+
+					
+
+					<section data-background-iframe="playfair/bad_example/imports_exports.html"
+					data-background-interactive data-background=#ffffff>
+					<ul>
+
+					<li class="fragment" style="position: absolute; left: 100px; top: 400px">Four colours max</li>
+					<li class="fragment" style="position: absolute; left: 100px; top: 500px">Line weight</li>
+					<li class="fragment" style="position: absolute; left: 400px; top: 450px; list-style-type:none;"><img src="img/piet.png" width="30%"></li>
+					
+					<li class="fragment" style="position: absolute; left: 100px; top: 600px">Aspect ratio</li>
+					
+					<li class="fragment" style="position: absolute; left: 800px; top: 500px">Labels next to lines</li>
+					<li class="fragment" style="position: absolute; left: 800px; top: 600px">Log scale</li>
+					</ul>
+
+					</section>
+
+					<section>
+						<h2>Aspect ratio</h2>
+						<img src="img/playfair_ratio.png" width="50%">
+						<ul>Tufte, 2001</ul>
+					</section>
+
+
+					<section data-background-iframe="playfair/imports_exports.html"
+					data-background-interactive data-background=#ffffff>
+					
+					</section>
+
+					<section id="fragments">
+						<h2>Plotting packages</h2>
+						<ol>
+							<li class="fragment fade-up">R: ggplot2</li>
+							<li class="fragment fade-up">R: PerformanceAnalytics</li>
+							<li class="fragment fade-up">R: Leaflet</li>
+							<li class="fragment fade-up">Python: Seaborn</li>
+							<li class="fragment fade-up">Python: Plotly Express</li>
+							<li class="fragment fade-up">Javascript: JSNetworkX</li>
+
+						</ol>
+	
+					</section>
+<!--
+					<section id="fragments">
+						<h2>R: ggplot2</h2>
+						<img src="../covid_deaths/plots/deprivation_densty.png">
+					</section>
+
+					<section id="fragments">
+						<h2>R: PerformanceAnalytics</h2>
+						<img src="img/corrplot.png" width="60%">
+					</section>
+
+					<section data-background-iframe="img/England map.html"
+					data-background-interactive data-background=#ffffff>
+				
+					</section>
+				-->
+					<section data-background-iframe="../covid_deaths/south_mid_north.html"
+					data-background-interactive data-background=#ffffff>
+						
+					</section>
+
+					<section>
+
+					<h2>Github</h2>
+
+						
+					</section>
+
+					
+
+					
+
+
+					
+
+					
+					
+
+
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/markdown/marked.js"></script>
+	
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				width: '100%',
+    			height: '100%',
+
+				  // Parallax background image
+				parallaxBackgroundImage: 'https://i2.wp.com/files.123freevectors.com/wp-content/original/110393-beige-and-turquoise-blurred-background-vector.jpg?w=800&q=95', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+				// Parallax background size
+				parallaxBackgroundSize: '12600px 900px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+				// Number of pixels to move the parallax background per slide
+				// - Calculated automatically unless specified
+				// - Set to 0 to disable movement along an axis
+				parallaxBackgroundHorizontal: 200,
+				parallaxBackgroundVertical: 50,
+
+
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+
+				dependencies: [
+		// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
+		{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+		// Interpret Markdown in <section> elements
+		{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+		// // Syntax highlight for <code> elements
+        { src: '//cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        //
+		]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,12 @@
+*.ipynb_checkpoints
+*.ipynb
+test/
+datavisplan.md
+covid_deaths.csv
+*.zip
+covid_deaths/raw_data/postcode_data/*
+covid_deaths/old/
+covid_deaths/old/*
+covid_deaths/raw_data/postcodes_with_lsoa_and_la.csv
+covid_deaths/raw_data/*
+*postcodes_with_lsoa_and_la.csv

@@ -1,0 +1,38 @@
+body { 
+    margin:0; /* This is used to reset any browser-default margins */ 
+    background: #a5c2c0;}
+
+#canvas {
+    height:100vh;
+    background: #a5c2c0;
+    color:#fff;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: large;
+    
+
+
+}
+
+#draggablediv {
+    position: absolute;
+    z-index: 9;
+    background-color: #a5c2c0;
+    border: 1px solid #fff;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: small;
+    color:#fff;
+    top: 0;
+    
+  }
+  
+  #draggabledivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: medium;
+  }
