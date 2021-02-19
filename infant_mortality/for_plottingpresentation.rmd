@@ -1,0 +1,67 @@
+---
+output: html_document
+---
+
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(readr)
+library(kableExtra)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(MASS)
+```
+
+<style>
+body {
+ background-image: url("https://i2.wp.com/files.123freevectors.com/wp-content/original/110393-beige-and-turquoise-blurred-background-vector.jpg?w=800&q=95"); 
+
+  background-size: cover;
+}
+</style>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+```{r table7, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=6, fig.align = 'center'}
+mortality <- read_csv("infant_mortality.csv")
+
+mortality_long <- gather(mortality,
+                         key = "year",
+                         value = "deaths", 
+                         -c("country", "type")) %>% 
+  mutate(year = as.integer(year))
+
+
+p <- ggplot(data = mortality_long, mapping = aes(
+  x = year,
+  y = deaths,
+  color = type,
+  group = country
+)) +
+  geom_point(size = 2) +
+  facet_grid(cols = vars(type)) +
+  ylab("Deaths per 100,000") +
+  theme(legend.position = "none",
+  axis.title.x = element_blank()) +
+  ggtitle("Infant mortality (1960-1996)")
+
+gp  <- plotly::ggplotly(p,
+                 tooltip = "country") %>%
+  config(displayModeBar = FALSE)
+
+# Fix axis labels (which are actually annotations)
+
+#gp[['x']][['layout']][['annotations']][[1]][['y']] <- -1
+gp[['x']][['layout']][['annotations']][[1]][['x']] <- -0.03
+
+gp
+
+
+```

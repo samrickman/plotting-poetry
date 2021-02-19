@@ -1,0 +1,55 @@
+---
+output: html_document
+---
+
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(readr)
+library(kableExtra)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(MASS)
+```
+
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+</style>
+
+<div style="position: center">![](table7.png){width=65%}</div>
+
+
+```{r table7, echo=FALSE, message=FALSE, warning=FALSE, fig.width=10, fig.height=6, fig.align = 'center'}
+mortality <- read_csv("infant_mortality.csv")
+
+mortality_long <- gather(mortality,
+                         key = "year",
+                         value = "deaths", 
+                         -c("country", "type")) %>% 
+  mutate(year = as.integer(year))
+
+
+p <- ggplot(data = mortality_long, mapping = aes(
+  x = year,
+  y = deaths,
+  color = type,
+  group = country
+)) +
+  geom_point(size = 2) +
+  facet_grid(cols = vars(type)) +
+  xlab("Year") +
+  ylab("Deaths per 100,000") +
+  theme(legend.position = "none")
+
+plotly::ggplotly(p,
+                 tooltip = "country") %>%
+  config(displayModeBar = FALSE)
+
+```
