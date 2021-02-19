@@ -1,6 +1,6 @@
 # Plotting poetry: Beyond a grammar of graphics
 
-This is a presentation given on 19th Feb 2020 to the NIHR SSCR Statistics Group.
+This is a presentation given on 19th Feb 2021 to the NIHR SSCR Statistics Group.
 
 # Reproducing the presentation
 
