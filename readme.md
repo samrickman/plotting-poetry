@@ -8,7 +8,7 @@ In order to run it, you will need to clone the repository to your hard disk:
 
 1. Make sure git [is installed ](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Create an empty folder e.g. on your desktop.
-3. Navigate to that folder in a terminal ([Windows](https://www.wikihow.com/Open-Terminal-in-Windows), [Mac](https://www.idownloadblog.com/2019/04/19/ways-open-terminal-mac/) and type:
+3. Navigate to that folder in a terminal ([Windows](https://www.wikihow.com/Open-Terminal-in-Windows), [Mac](https://www.idownloadblog.com/2019/04/19/ways-open-terminal-mac/)) and type:
 
 ```
 git clone https://github.com/samrickman/plotting-poetry.git
