@@ -1,6 +1,6 @@
 # Plotting poetry: Beyond a grammar of graphics
 
-This is a presentation given on 19th Feb 2021 to the NIHR SSCR Statistics Group.
+This is a presentation given on 19th Feb 2021 to the NIHR SSCR Statistics Group. You can watch the presentation [here](https://youtu.be/bP8osv_z8b8?t=2201).
 
 # Reproducing the presentation
 
@@ -25,4 +25,3 @@ The plots are either written in R, python or javascript. They are created in the
 1. infant_mortality.
 2. covid_deaths.
 3. spreadsheet_network.
-
